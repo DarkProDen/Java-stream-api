@@ -86,7 +86,7 @@ public class Main {
     List<Project> sortedProjects = employees.stream()
         .map(Employee::getProjects)
         .flatMap(List::stream)
-        .sorted(Comparator.comparingInt(Project::getDuration))
+        .sorted(Comparator.comparingInt(Project::getDuration).reversed())
         .toList();
 
     sortedProjects.forEach(System.out::println);
