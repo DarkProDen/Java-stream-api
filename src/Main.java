@@ -25,7 +25,9 @@ public class Main {
       employees.add(employee);
     }
 
-    System.out.println("==================================");
+    System.out.println("======================================================================================================");
+    System.out.println("Оставить только тех сотрудников, у которых возраст от 30 до 50 лет и зарплата выше 60,000");
+    System.out.println("======================================================================================================");
 
     List<Employee> filteredList = employees
         .stream()
@@ -40,7 +42,9 @@ public class Main {
       System.out.println(employee.getProjects());
     });
 
-    System.out.println("==================================");
+    System.out.println("======================================================================================================");
+    System.out.println("Извлечь все названия проектов из списка сотрудников в одном потоке.");
+    System.out.println("======================================================================================================");
 
     List<String> projectsNames = employees.stream()
         .map(Employee::getProjects)
@@ -50,7 +54,9 @@ public class Main {
 
     System.out.println(projectsNames);
 
-    System.out.println("==================================");
+    System.out.println("======================================================================================================");
+    System.out.println("Извлечь только те проекты, длительность которых больше 6 месяцев.");
+    System.out.println("======================================================================================================");
 
     List<Project> filteredProjects = employees.stream()
         .map(Employee::getProjects)
@@ -60,7 +66,9 @@ public class Main {
 
     filteredProjects.forEach(System.out::println);
 
-    System.out.println("==================================");
+    System.out.println("======================================================================================================");
+    System.out.println("Преобразовать все названия проектов в верхний регистр.");
+    System.out.println("======================================================================================================");
 
     employees.stream()
         .map(Employee::getProjects)
@@ -71,15 +79,17 @@ public class Main {
       employee.getProjects().forEach(System.out::println);
     });
 
-    System.out.println("==================================");
+    System.out.println("======================================================================================================");
+    System.out.println("Сортировать проекты по длительности (по убыванию).");
+    System.out.println("======================================================================================================");
 
-    List<Project> projects = employees.stream()
+    List<Project> sortedProjects = employees.stream()
         .map(Employee::getProjects)
         .flatMap(List::stream)
         .sorted(Comparator.comparingInt(Project::getDuration))
         .toList();
 
-    projects.forEach(System.out::println);
+    sortedProjects.forEach(System.out::println);
 
     System.out.println("==================================");
   }
